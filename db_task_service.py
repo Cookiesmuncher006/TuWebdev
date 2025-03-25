@@ -1,6 +1,5 @@
-# Import the Task model from a module named db_task_model
 from db_task_model import Task
-# Import select function and Session class from sqlmodel for database operations
+
 from sqlmodel import select, Session
 
 
@@ -14,9 +13,7 @@ def get_all_tasks(session: Session):
     Returns:
         list: A list of all Task objects in the database
     """
-    # Create a SELECT query for all Task records
     statement = select(Task)
-    # Execute the query and return all results as a list
     tasks = session.exec(statement).all()
     return tasks
 
@@ -32,11 +29,9 @@ def create_task(task: Task, session: Session):
     Returns:
         Task: The created Task object with updated fields (including ID)
     """
-    # Add the task object to the session
     session.add(task)
-    # Commit the transaction to save changes to the database
     session.commit()
-    # Refresh the task object with data from the database (including generated ID)
+    
     session.refresh(task)
     return task
 
@@ -53,19 +48,14 @@ def update_task(task_id: int, updated: Task, session: Session):
     Returns:
         Task or str: The updated Task object if found, or error message if not found
     """
-    # Get the task with the specified ID
     task = session.get(Task, task_id)
 
-    # If task doesn't exist, return an error message
     if not task:
         return "Task Not Found"
     
-    # Update the task's fields with values from the updated task object
     task.description = updated.description
     task.isComplete = updated.isComplete
-    # Commit the changes to the database
     session.commit()
-    # Refresh the task with data from the database
     session.refresh(task)
     
     return task
@@ -82,16 +72,12 @@ def delete_task(task_id: int, session: Session):
     Returns:
         str: Success message or error message
     """
-    # Get the task with the specified ID
     task = session.get(Task, task_id)
     
-    # If task doesn't exist, return an error message
     if not task:
         return "Task not found"
     
-    # Delete the task from the session
     session.delete(task)
-    # Commit the changes to the database
     session.commit()
 
     return "Task deleted successfully"
@@ -108,10 +94,8 @@ def get_task(task_id: int, session: Session):
     Returns:
         Task or str: The requested Task object if found, or error message if not found
     """
-    # Get the task with the specified ID
     task = session.get(Task, task_id)
     
-    # If task doesn't exist, return an error message
     if not task:
         return "Task Not Found"
     

@@ -12,9 +12,9 @@ class Task(SQLModel, table=True):
     isComplete: bool = Field(default=False)
 
 
-mysql_name = "test_db"
+mysql_name = "db_task_service"
 
-mysql_url = f"mysql+pymysql://root:password@localhost:3306/{mysql_name}"
+mysql_url = f"mysql+pymysql://root:ponce2310@localhost:3306/{mysql_name}"
 
 engine = create_engine(mysql_url)
 

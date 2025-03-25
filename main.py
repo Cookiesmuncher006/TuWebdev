@@ -2,6 +2,7 @@
 from fastapi import FastAPI, Depends
 from fastapi.middleware.cors import CORSMiddleware
 
+
 from db_task_model import create_db_and_tables, get_session
 from task_model import Task
 from db_task_service import *  
