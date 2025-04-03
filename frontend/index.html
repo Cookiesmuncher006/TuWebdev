@@ -3,9 +3,38 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Task Frontend</title>
+    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="./style.css" />
   </head>
-  <body>
-    <p>Hello</p>
+
+    <form id="taskForm">
+      <div class="container">
+        <label for="description">Task Creation</label>
+        <input type="text" id="description" required />
+        <button type="submit">Create Task</button>
+      </div>
+    </form>
+
+    <form id="deleteTaskForm">
+      <div class="container">
+        <label for="taskId">Task Deletion</label>
+        <input type="text" id="taskId" required />
+        <button type="submit">Delete Task</button>
+      </div>
+    </form>
+
+
+    <form id="getTaskForm">
+      <div class="container">
+        <label for="getTask">Get All Tasks</label>
+        <button type="submit">Get Tasks</button>
+      </div>
+    </form>
+
+    <div id="taskList"></div>
+
+
+    <p id="responseStatus"></p>
   </body>
 </html>
