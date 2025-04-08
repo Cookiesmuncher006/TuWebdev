@@ -1,0 +1,47 @@
+h1 {
+  font-size: 25px;
+  color: purple;
+  text-shadow: 5px;
+}
+
+.subheading {
+  color: red;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+}
+
+#taskForm .container,
+#deleteTaskForm .container,
+#getTaskForm .container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+label {
+  font-size: 50px;
+  font-weight: bold;
+  outline: gray;
+}
+
+input {
+  font-size: 15px;
+  padding: 50px;
+  width: 50%;
+  box-sizing: content-box;
+  overflow: auto;
+  border-radius: 15px;
+}
+
+button {
+  border-radius: 15px;
+  size: 50px;
+  gap: 75%;
+}
